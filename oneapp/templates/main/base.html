@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+</head>
+
+<body>
+    <!-- <h1> This is my first Django Webpage </h1>
+    <h2> This is my first Django Webpage </h2>
+    <h1>Jinja Gadgets</h1>
+    <p> ID : {{ id }} </p>
+    <p>NAME: {{ name }} </p>
+    <p>DESC: {{ desc }}</p>
+    <p>PRICE: {{ price }}</p> -->
+    <!-- <p> {{ feature }}</p> -->
+    <!-- <p>FEATURES: </p>
+    {% for i in feature %}
+    <p> {{ i }}</p>
+    {% endfor %} -->
+
+
+    {% for i in product %}
+    <p>ID: {{ i.id }}</p>
+    <p>NAME: {{ i.name }}</p>
+    <p>PRICE: {{ i.price }}</p>
+    <p>DESC: {{ i.desc }}</p>
+    <p>FEATURES: {% for x in i.feature %}
+        <br> &ensp; {{ x }} {% endfor %}
+
+    </p>{% endfor %}
+
+    <h1> Arithmetics </h1>
+    {% load django_template_maths %} {{ 10|sub:5 }} {{ 10|div:5 }}
+
+
+</body>
+
+</html>
