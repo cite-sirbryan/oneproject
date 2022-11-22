@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import datetime
 
 # Create your views here.
 # def index(request):
@@ -31,8 +32,19 @@ def index(request):
                     "feature" : ["20MP Camera", "4GB RAM", "18MP Front Camera"],
                 
                 } 
-            ]
+            ],
 
+        "number": 70,
+
+        "user" : "Teacher",
+
+        "Message": "The quick brown fox jumps over the lazy dog",
+
+        "notification": 0,
+
+        "listofnames" : ["Mark", "Jonah", ["Josie", "Jessie", "Jenny"],"David"],
+
+        "datenow": datetime.datetime.now(),
 
 
         # "id" : "123",
@@ -53,3 +65,8 @@ def aboutme(request):
     }
 
     return render(request, template, context)
+
+def bootstrap(request):
+    template = "main/boot`strap.html"
+
+    return render(request, template)

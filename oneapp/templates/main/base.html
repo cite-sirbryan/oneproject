@@ -1,41 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="{% static 'css/mycss.css' %}">
+
     <title>My Webpage</title>
 </head>
 
 <body>
-    <!-- <h1> This is my first Django Webpage </h1>
+    {% if user == "Teacher" %}
+    <nav class="navbar bg-success">
+        {% elif user == "Student" %}
+        <nav class="navbar bg-light">
+            {% endif %}
+            <div class="container-fluid">
+                <a class="navbar-brand">Bryan {{user}}, {{ datenow | date:"D d M Y" }}</a>
+
+                <form class="d-flex" role="search">
+                    {% if notification > 0 %}
+                    <img src="{% static 'images/ICO.png' %}" width="20px" height="20px"> {% endif %}
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container text-center">
+            <div class="row">
+                {% if number >= 95 %}
+                <p> {{number}} is Excellent </p>
+                {% elif number >= 80 %}
+                <p> {{number}} is Average </p>
+                {% elif number >= 70 %}
+                <p> {{number}} is Fair </p>
+                {% endif %} {% if user == 'Student' %} {% lorem 1 p %} {% endif %} {% if user == 'Teacher' %} {% lorem 1 p %} {% endif %} {% for i in product %} {% if i.id == '123' %} {{i.id}} {{i.name}} {{i.desc}} {{i.price}} {{i.features}} {% endif %} {% endfor %}
+                {{ Message | title }}
+                <p>{{ listofnames | unordered_list}}</p>
+            </div>
+        </div>
+        <img src="{% static 'images/DICT.png' %}" class="image" />
+        <div id="footer">
+            <footer class="bg-light text-center text-lg-start">
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2022 Copyright
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </div>
+
+
+
+        {% comment %}
+        <!-- <h1> This is my first Django Webpage </h1>
     <h2> This is my first Django Webpage </h2>
     <h1>Jinja Gadgets</h1>
     <p> ID : {{ id }} </p>
     <p>NAME: {{ name }} </p>
     <p>DESC: {{ desc }}</p>
     <p>PRICE: {{ price }}</p> -->
-    <!-- <p> {{ feature }}</p> -->
-    <!-- <p>FEATURES: </p>
+        <!-- <p> {{ feature }}</p> -->
+        <!-- <p>FEATURES: </p>
     {% for i in feature %}
     <p> {{ i }}</p>
     {% endfor %} -->
 
 
-    {% for i in product %}
-    <p>ID: {{ i.id }}</p>
-    <p>NAME: {{ i.name }}</p>
-    <p>PRICE: {{ i.price }}</p>
-    <p>DESC: {{ i.desc }}</p>
-    <p>FEATURES: {% for x in i.feature %}
-        <br> &ensp; {{ x }} {% endfor %}
+        {% for i in product %}
+        <p>ID: {{ i.id }}</p>
+        <p>NAME: {{ i.name }}</p>
+        <p>PRICE: {{ i.price }}</p>
+        <p>DESC: {{ i.desc }}</p>
+        <p>FEATURES: {% for x in i.feature %}
+            <br> &ensp; {{ x }} {% endfor %}
 
-    </p>{% endfor %}
+        </p>{% endfor %}
 
-    <h1> Arithmetics </h1>
-    {% load django_template_maths %} {{ 10|sub:5 }} {{ 10|div:5 }}
-
+        <h1> Arithmetics </h1>
+        {% load django_template_maths %} {{ 10|sub:5 }} {{ 10|div:5 }} {% endcomment %}
 
 </body>
 
