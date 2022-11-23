@@ -23,5 +23,6 @@ from oneapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index),              #!----> this is the declation of our front page
     path('oa/', include('oneapp.urls'))
 ]
