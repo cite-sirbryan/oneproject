@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<!--! this is where the head is-->
-{% include 'header/head.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+</head>
 
 <body>
-    <!--! this is where the navbar is-->
-    {% include 'navbar/navigation.html' %}
-
-    <!--! this is where the container is-->
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-sm">
-                <table border="1">
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td>{{ address }}</td>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-    </div>
-
-    <!--! this is where the footer is-->
-    {% include 'footer/footer.html' %}
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <td>{{ name }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ address }}</td>
+        </tr>
+    </table>
 </body>
 
 </html>
