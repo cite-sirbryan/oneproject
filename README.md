@@ -1,2 +1,2 @@
 # oneproject
- Day 1 DICT Django Day 1
+ Day 2 DICT Django Day 2 Codes

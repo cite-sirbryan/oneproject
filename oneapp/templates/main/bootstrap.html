@@ -12,18 +12,16 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-sm">
-                <table border="1">
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Address</th>
-                        <td>{{ address }}</td>
-                    </tr>
-                </table>
-            </div>
+                <h1> You have Submitted Successfully </h1>
 
+                {% for i in product %}
+                <p>ID:{{i.id}}</p>
+                <p>NAME:{{i.name}}</p>
+                <p>DESCRIPTION:{{i.desc}}</p>
+                <p>PRICE:{{i.price}}</p>
+                <p>FEATURES{{i.feature}}</p>
+                <hr> {% endfor %}
+            </div>
         </div>
     </div>
 

@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Webpage</title>
-</head>
+{% load static %}
+<!--! this is where the head is-->
+{% include 'header/head.html' %}
 
 <body>
-    <!-- <h1> This is my first Django Webpage </h1>
-    <h2> This is my first Django Webpage </h2>
-    <h1>Jinja Gadgets</h1>
-    <p> ID : {{ id }} </p>
-    <p>NAME: {{ name }} </p>
-    <p>DESC: {{ desc }}</p>
-    <p>PRICE: {{ price }}</p> -->
-    <!-- <p> {{ feature }}</p> -->
-    <!-- <p>FEATURES: </p>
-    {% for i in feature %}
-    <p> {{ i }}</p>
-    {% endfor %} -->
+    <!--! this is where the navbar is-->
+    {% include 'navbar/navigation.html' %}
 
+     <!--! this is where the container is-->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mxbzt7wodAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+                {% lorem %}
+            </div>
+            <div class="col-sm">
+                {% lorem %}
+            </div>
+            <div class="col-sm">
+                {% lorem %}
+            </div>
+        </div>
+    </div>
 
-    {% for i in product %}
-    <p>ID: {{ i.id }}</p>
-    <p>NAME: {{ i.name }}</p>
-    <p>PRICE: {{ i.price }}</p>
-    <p>DESC: {{ i.desc }}</p>
-    <p>FEATURES: {% for x in i.feature %}
-        <br> &ensp; {{ x }} {% endfor %}
-
-    </p>{% endfor %}
-
-    <h1> Arithmetics </h1>
-    {% load django_template_maths %} {{ 10|sub:5 }} {{ 10|div:5 }}
-
-
+    <!--! this is where the footer is-->
+    {% include 'footer/footer.html' %}
 </body>
 
 </html>

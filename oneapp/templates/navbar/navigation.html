@@ -1,0 +1,22 @@
+{% load static %} {% if user == "Teacher" %}
+<nav class="navbar bg-success">
+    {% elif user == "Student" %}
+    <nav class="navbar bg-light">
+        {% else %}
+        <nav class="navbar bg-light">
+            {% endif %}
+            <div class="container-fluid">
+                <a class="navbar-brand">Bryan {{user}}, {{ datenow | date:"D d M Y" }} </a>
+                <a class="nav-link" href="{% url 'index' %}"> Home </a>
+                <a class="nav-link" href="{% url 'aboutme' %}"> About Me </a>
+                <a class="nav-link" href="{% url 'item' %}"> Add Items </a>
+                <a class="nav-link" href="{% url 'bootstrap' %}"> View Item </a>
+
+                <form class="d-flex" role="search">
+                    {% if notification > 0 %}
+                    <img src="{% static 'images/ICO.png' %}" width="20px" height="20px"> {% endif %}
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
