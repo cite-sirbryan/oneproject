@@ -16,13 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from django.conf import settings
-from django.conf.urls.static import static
-from oneapp import views
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),              #!----> this is the declation of our front page
     path('oa/', include('oneapp.urls'))
 ]
