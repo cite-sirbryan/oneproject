@@ -33,8 +33,6 @@ def index(request):
                 } 
             ]
 
-
-
         # "id" : "123",
         # "name" : "Iphone 13 Pro Max",
         # "desc" : "Smart Phone",
@@ -43,8 +41,6 @@ def index(request):
     }
     return render(request, template, context)
 
-
-
 def aboutme(request):
     template = "main/aboutme.html"
     context = {
@@ -52,4 +48,18 @@ def aboutme(request):
         "address": "QC"
     }
 
+    return render(request, template, context)
+
+def login_view(request):
+    template = "main/navbar.html"
+    context=None
+    if request.method == 'POST':
+        user = request.POST['username']
+        password = request.POST['password']
+        if user is not None:
+            if user == "admin" and password == "123456":
+                context = {'role': 'admin'}
+            else:
+                context = {'role': 'staff'}
+                    
     return render(request, template, context)
