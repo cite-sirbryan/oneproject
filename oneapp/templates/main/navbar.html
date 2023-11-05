@@ -1,0 +1,26 @@
+
+
+  {% include 'main/head.html' %}
+
+  {% if role == 'admin' %}
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container">
+        <a class="navbar-brand" href="#">Admin Navbar</a>
+    </div>
+  </nav>
+{% else %}
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fde3e9;">
+    <div class="container">
+        <a class="navbar-brand" href="#">Staff Navbar</a>
+    </div>
+  </nav>
+{% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {%csrf_token%}
+    <input type="input" name="username" value="" />
+    <input type="password" name="password" value="" />
+    <button type="submit">Login</button>
+  </form>
+
+  {% include 'main/footer.html' %}
